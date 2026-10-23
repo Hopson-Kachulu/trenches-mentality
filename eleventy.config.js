@@ -10,6 +10,9 @@ export default function (eleventyConfig) {
 
   const now = new Date();
 
+  // Changes every build, so browsers always fetch the newest CSS
+  eleventyConfig.addGlobalData("build", String(Date.now()));
+
   // "Posts" = everything in src/blog that is not a draft and not dated in the future.
   // Future-dated posts appear automatically once the daily rebuild runs past their date.
   eleventyConfig.addCollection("posts", (api) =>
