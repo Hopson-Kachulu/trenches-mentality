@@ -1,15 +1,27 @@
 {
   "open": true,
   "priceMwk": "10,000",
-  "priceUsd": "6",
+  "priceUsd": "5",
   "period": "month",
   "paychanguLink": "",
-  "cryptoLink": "",
+  "cryptoLink": "https://nowpayments.io/payment/?iid=4837146821",
   "spots": "",
   "perks": [
-    { "title": "Tailored webinars", "line": "Live sessions shaped by what members are actually working on. Bring your questions, leave with a plan." },
-    { "title": "Exclusive guides", "line": "Step-by-step playbooks with real numbers: tools, costs, scripts and templates you can copy." },
-    { "title": "Inside interviews", "line": "Long conversations with people who climbed out: farmers, builders, artists, founders. The parts they don't post." },
-    { "title": "The private circle", "line": "A members-only group where you can ask, share wins and find people to build with." }
+    {
+      "title": "Tailored webinars",
+      "line": "Live sessions shaped by what members are actually working on. Bring your questions, leave with a plan."
+    },
+    {
+      "title": "Exclusive guides",
+      "line": "Step-by-step playbooks with real numbers: tools, costs, scripts and templates you can copy."
+    },
+    {
+      "title": "Inside interviews",
+      "line": "Long conversations with people who climbed out: farmers, builders, artists, founders. The parts they don't post."
+    },
+    {
+      "title": "The private circle",
+      "line": "A members-only group where you can ask, share wins and find people to build with."
+    }
   ]
 }

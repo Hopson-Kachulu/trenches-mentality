@@ -13,7 +13,7 @@ permalink: /inner-circle/
     <div class="price-tag">
       <span class="price">MWK {{ ic.priceMwk }}</span>
       <span class="per">/ {{ ic.period }}</span>
-      <span class="alt">or about ${{ ic.priceUsd }} in crypto</span>
+      <span class="alt">or ${{ ic.priceUsd }} in crypto</span>
     </div>
     <a class="btn" href="#join-ic" style="background:var(--maize);border-color:var(--maize);color:var(--ink)">Join the Inner Circle</a>
   </div>
@@ -57,7 +57,7 @@ permalink: /inner-circle/
           </div>
           <div class="pay-card">
             <h3>Crypto</h3>
-            <p>USDT, BTC, ETH and more through a secure crypto checkout. About ${{ ic.priceUsd }}.</p>
+            <p>${{ ic.priceUsd }} in USDT, BTC, ETH or 300+ other coins through NOWPayments. After paying, copy the <strong>Payment ID</strong> for step 2.</p>
             {%- if ic.cryptoLink %}
             <a class="btn btn-ghost" href="{{ ic.cryptoLink }}" target="_blank" rel="noopener">Pay with crypto</a>
             {%- else %}
@@ -82,7 +82,7 @@ permalink: /inner-circle/
               <option>Crypto</option>
             </select>
           </div>
-          <div class="field"><label for="ic-ref">Payment reference or transaction ID</label><input id="ic-ref" type="text" name="reference" required></div>
+          <div class="field"><label for="ic-ref">Payment reference (PayChangu) or Payment ID (NOWPayments)</label><input id="ic-ref" type="text" name="reference" required></div>
           <div class="field"><label for="ic-goal">What are you working on right now? (helps us shape the webinars)</label><textarea id="ic-goal" name="goal" rows="3"></textarea></div>
           <button class="btn" type="submit">Claim my spot</button>
           <p class="meta" style="margin-top:.8rem">We check every payment by hand and send your invite within 24 hours.</p>
