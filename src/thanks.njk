@@ -15,4 +15,8 @@ eleventyExcludeFromCollections: true
     document.getElementById("thanks-title").textContent = "Message received.";
     document.getElementById("thanks-text").textContent = "Thanks for reaching out. A real person will read it and reply, usually within two days.";
   }
+  if (location.search.includes("f=inner-circle")) {
+    document.getElementById("thanks-title").textContent = "Welcome to the Inner Circle.";
+    document.getElementById("thanks-text").textContent = "We're checking your payment now. Your invite and first guides will reach you on WhatsApp and email within 24 hours.";
+  }
 </script>

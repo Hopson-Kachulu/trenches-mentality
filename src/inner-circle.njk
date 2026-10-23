@@ -1,0 +1,106 @@
+---
+layout: base.njk
+title: "Inner Circle"
+description: "Join the Trenches Mentality Inner Circle: tailored webinars, exclusive guides and inside interviews for people serious about making it out."
+permalink: /inner-circle/
+---
+{%- set ic = innerCircle %}
+<section class="ic-hero">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--maize)">Inner Circle · Members only</p>
+    <h1>For the ones who are serious about getting out.</h1>
+    <p class="lede">The blog is free and always will be. The Inner Circle is where we go deeper: live webinars built around your goals, full playbooks, and honest interviews with people who have done it.</p>
+    <div class="price-tag">
+      <span class="price">MWK {{ ic.priceMwk }}</span>
+      <span class="per">/ {{ ic.period }}</span>
+      <span class="alt">or about ${{ ic.priceUsd }} in crypto</span>
+    </div>
+    <a class="btn" href="#join-ic" style="background:var(--maize);border-color:var(--maize);color:var(--ink)">Join the Inner Circle</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>What members get</h2>
+    <div class="perks">
+      {%- for p in ic.perks %}
+      <div class="perk">
+        <span class="num">0{{ loop.index }}</span>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.line }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section ic-join" id="join-ic">
+  <div class="wrap">
+    <h2>How to join</h2>
+    <p class="muted" style="max-width:38rem">Two steps. Pay with the method that works for you, then send us your payment reference so we can add you.</p>
+
+    {%- if not ic.open %}
+    <div class="pay-card" style="margin-top:1.5rem"><h3>Doors are closed for now.</h3><p>We open new spots in small batches so every member gets attention. <a href="/newsletter/">Join the Sunday letter</a> and you'll hear first when we reopen.</p></div>
+    {%- else %}
+    <div class="steps">
+      <div class="step">
+        <p class="step-num">Step 1 · Pay</p>
+        <div class="pay-options">
+          <div class="pay-card">
+            <h3>Mobile money or card</h3>
+            <p>Airtel Money, TNM Mpamba, bank or card through PayChangu. MWK {{ ic.priceMwk }}.</p>
+            {%- if ic.paychanguLink %}
+            <a class="btn" href="{{ ic.paychanguLink }}" target="_blank" rel="noopener">Pay with PayChangu</a>
+            {%- else %}
+            <span class="btn btn-disabled" aria-disabled="true">PayChangu coming soon</span>
+            {%- endif %}
+          </div>
+          <div class="pay-card">
+            <h3>Crypto</h3>
+            <p>USDT, BTC, ETH and more through a secure crypto checkout. About ${{ ic.priceUsd }}.</p>
+            {%- if ic.cryptoLink %}
+            <a class="btn btn-ghost" href="{{ ic.cryptoLink }}" target="_blank" rel="noopener">Pay with crypto</a>
+            {%- else %}
+            <span class="btn btn-disabled" aria-disabled="true">Crypto coming soon</span>
+            {%- endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <p class="step-num">Step 2 · Claim your spot</p>
+        <form name="inner-circle" method="POST" action="/thanks/?f=inner-circle" data-netlify="true" netlify-honeypot="company">
+          <input type="hidden" name="form-name" value="inner-circle">
+          <p class="hidden"><label>Leave this empty <input name="company"></label></p>
+          <div class="field"><label for="ic-name">Your name</label><input id="ic-name" type="text" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="ic-email">Email</label><input id="ic-email" type="email" name="email" required autocomplete="email"></div>
+          <div class="field"><label for="ic-wa">WhatsApp number (for the invite)</label><input id="ic-wa" type="text" name="whatsapp" required placeholder="+265 ..." autocomplete="tel"></div>
+          <div class="field">
+            <label for="ic-method">How did you pay?</label>
+            <select id="ic-method" name="method">
+              <option>PayChangu (mobile money / card)</option>
+              <option>Crypto</option>
+            </select>
+          </div>
+          <div class="field"><label for="ic-ref">Payment reference or transaction ID</label><input id="ic-ref" type="text" name="reference" required></div>
+          <div class="field"><label for="ic-goal">What are you working on right now? (helps us shape the webinars)</label><textarea id="ic-goal" name="goal" rows="3"></textarea></div>
+          <button class="btn" type="submit">Claim my spot</button>
+          <p class="meta" style="margin-top:.8rem">We check every payment by hand and send your invite within 24 hours.</p>
+        </form>
+      </div>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width:44rem">
+    <h2>Questions</h2>
+    <ul class="values">
+      <li><strong>Is it a monthly payment?</strong>Yes. Membership runs one month from the day you join. We'll remind you a few days before it ends so you can renew.</li>
+      <li><strong>Can I leave?</strong>Anytime. Just don't renew. No contracts, no hard feelings.</li>
+      <li><strong>Is the blog still free?</strong>Always. The Inner Circle is for people who want more depth and direct access.</li>
+      <li><strong>Something went wrong with my payment?</strong><a href="/contact/">Message us</a> with your reference and we'll sort it out.</li>
+    </ul>
+  </div>
+</section>

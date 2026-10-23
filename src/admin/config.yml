@@ -66,3 +66,20 @@ collections:
             fields:
               - { label: Name, name: name, widget: string }
               - { label: One-line description, name: line, widget: string }
+      - name: inner_circle
+        label: Inner Circle (price & payment links)
+        file: src/_data/innerCircle.json
+        fields:
+          - { label: "Open for new members", name: open, widget: boolean, default: true }
+          - { label: "Price in MWK (e.g. 10,000)", name: priceMwk, widget: string }
+          - { label: "Price in USD for crypto", name: priceUsd, widget: string }
+          - { label: "Billing period", name: period, widget: string, default: month }
+          - { label: "PayChangu payment link", name: paychanguLink, widget: string, required: false }
+          - { label: "Crypto checkout link (e.g. NOWPayments)", name: cryptoLink, widget: string, required: false }
+          - { label: "Spots left (optional)", name: spots, widget: string, required: false }
+          - label: What members get
+            name: perks
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: line, widget: text }
