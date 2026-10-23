@@ -1,0 +1,15 @@
+<section class="band" id="join">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--maize)">The Sunday letter</p>
+    <h2>Get one honest letter a week.</h2>
+    <p>What worked, what failed, and one thing you can try this week. No spam, no hype. Leave whenever you want.</p>
+    <form class="inline-form" name="newsletter" method="POST" action="/thanks/?f=newsletter" data-netlify="true" netlify-honeypot="company">
+      <input type="hidden" name="form-name" value="newsletter">
+      <p class="hidden"><label>Leave this empty <input name="company"></label></p>
+      <label class="hidden" for="nl-email-{{ page.fileSlug }}">Email</label>
+      <input id="nl-email-{{ page.fileSlug }}" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+      <button class="btn" type="submit">Join the letter</button>
+    </form>
+    <p class="small">Free. One email a week, usually Sunday.</p>
+  </div>
+</section>

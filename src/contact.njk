@@ -1,0 +1,41 @@
+---
+layout: base.njk
+title: "Contact"
+description: "Get in touch with Trenches Mentality: share your story, collaborate, or say hello."
+permalink: /contact/
+---
+<div class="wrap">
+  <header class="page-head">
+    <p class="eyebrow">Contact</p>
+    <h1>Talk to us.</h1>
+    <p>Got a story from your own trenches? Want to write for us, partner, or just ask a question? Send it. A real person reads every message.</p>
+  </header>
+  <div class="two-col">
+    <form name="contact" method="POST" action="/thanks/?f=contact" data-netlify="true" netlify-honeypot="company">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="hidden"><label>Leave this empty <input name="company"></label></p>
+      <div class="field"><label for="c-name">Your name</label><input id="c-name" type="text" name="name" required autocomplete="name"></div>
+      <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" name="email" required autocomplete="email"></div>
+      <div class="field">
+        <label for="c-topic">What's it about?</label>
+        <select id="c-topic" name="topic">
+          <option>Sharing my story</option>
+          <option>Writing for the blog</option>
+          <option>Partnership or sponsorship</option>
+          <option>Question</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" name="message" rows="6" required></textarea></div>
+      <button class="btn" type="submit">Send message</button>
+    </form>
+    <div>
+      <div class="card">
+        <h3>Other ways</h3>
+        <p>Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        {%- for name, link in site.socials %}{% if link %}<p>{{ name | capitalize }}: <a href="{{ link }}">{{ link }}</a></p>{% endif %}{% endfor %}
+        <p class="muted" style="margin:0">We usually reply within two days.</p>
+      </div>
+    </div>
+  </div>
+</div>

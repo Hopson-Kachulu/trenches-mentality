@@ -1,0 +1,23 @@
+{
+  "name": "Trenches Mentality",
+  "tagline": "Out the trenches, one honest skill at a time.",
+  "description": "A community for people doing everything they can to make it out the trenches: through tech, AI, agriculture, the arts and any noble work.",
+  "url": "https://trenchesmentality.shop",
+  "author": "Hopson",
+  "email": "hello@trenchesmentality.shop",
+  "goatcounter": "",
+  "socials": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "whatsapp": ""
+  },
+  "pillars": [
+    { "name": "Tech", "line": "Learning to build, fix and sell with code and tools anyone can get." },
+    { "name": "AI", "line": "Using AI as a co-worker, not a magic trick. What actually pays." },
+    { "name": "Agriculture", "line": "Soil, seeds, livestock and the business side of feeding people." },
+    { "name": "Arts", "line": "Music, design, film, words. Turning talent into a living." },
+    { "name": "Hustle", "line": "Money, discipline, side income and the mindset that holds it together." }
+  ]
+}

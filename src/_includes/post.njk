@@ -1,0 +1,28 @@
+---
+layout: base.njk
+---
+<article>
+  <header class="article-head">
+    <div class="wrap" style="max-width:calc(var(--measure) + 2rem)">
+      {%- if pillar %}<a class="tag" href="/pillar/{{ pillar | slug }}/">{{ pillar }}</a>{% endif %}
+      <h1>{{ title }}</h1>
+      {%- if excerpt %}<p class="excerpt">{{ excerpt }}</p>{% endif %}
+      <p class="meta">By {{ author or site.author }} · <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time> · {{ content | readingTime }}</p>
+    </div>
+  </header>
+  {%- if image %}
+  <figure class="cover"><img src="{{ image }}" alt="{{ imageAlt or '' }}" loading="eager"></figure>
+  {%- endif %}
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+  <div class="post-foot">
+    <hr style="border:0;border-top:1px solid var(--line);margin:0 0 1.5rem">
+    <p class="meta">If this helped, send it to one person still in the trenches.
+      <a href="https://wa.me/?text={{ (title + ' ' + site.url + page.url) | urlencode }}">WhatsApp</a> ·
+      <a href="https://x.com/intent/post?text={{ title | urlencode }}&url={{ (site.url + page.url) | urlencode }}">X</a> ·
+      <a href="/blog/">More stories</a>
+    </p>
+  </div>
+</article>
+{% include "newsletter-band.njk" %}

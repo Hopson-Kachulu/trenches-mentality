@@ -1,0 +1,21 @@
+---
+layout: base.njk
+pagination:
+  data: site.pillars
+  size: 1
+  alias: pillarItem
+permalink: "/pillar/{{ pillarItem.name | slug }}/"
+eleventyComputed:
+  title: "{{ pillarItem.name }}"
+  description: "{{ pillarItem.line }}"
+---
+<div class="wrap">
+  <header class="page-head">
+    <p class="eyebrow">Pillar</p>
+    <h1>{{ pillarItem.name }}</h1>
+    <p>{{ pillarItem.line }}</p>
+  </header>
+  {%- set postsToShow = collections.posts | byPillar(pillarItem.name) %}
+  {% include "post-list.njk" %}
+  <p style="margin:2rem 0 4rem"><a href="/blog/">← All stories</a></p>
+</div>

@@ -1,0 +1,45 @@
+---
+layout: base.njk
+---
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">A community, not a course</p>
+    <h1>Everyone here is trying to make it <em>out the trenches.</em></h1>
+    <p class="lede">Through tech, AI, farming, the arts, or any honest work that puts food on the table. We share what we learn, the wins and the losses, so the next person climbs faster.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#join">Join the Sunday letter</a>
+      <a class="btn btn-ghost" href="/blog/">Read the stories</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Five ways out</h2>
+      <p class="muted" style="margin:0">Pick the one in front of you.</p>
+    </div>
+    <div class="pillars">
+      {%- for p in site.pillars %}
+      <a class="pillar" href="/pillar/{{ p.name | slug }}/">
+        <span class="num">0{{ loop.index }}</span>
+        <h3>{{ p.name }}</h3>
+        <p>{{ p.line }}</p>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Latest from the trenches</h2>
+      <a href="/blog/" style="font-family:var(--font-ui);font-weight:600">All stories →</a>
+    </div>
+    {%- set postsToShow = collections.posts | head(5) %}
+    {% include "post-list.njk" %}
+  </div>
+</section>
+
+{% include "newsletter-band.njk" %}

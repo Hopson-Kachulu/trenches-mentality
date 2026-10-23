@@ -1,0 +1,18 @@
+---
+layout: base.njk
+title: "Blog"
+description: "Stories, lessons and how-tos from people building their way out of the trenches."
+permalink: /blog/
+---
+<div class="wrap">
+  <header class="page-head">
+    <p class="eyebrow">The blog</p>
+    <h1>Stories from the trenches</h1>
+    <p>Real lessons from real attempts. Filter by what you're working on:
+      {% for p in site.pillars %}<a class="tag" style="margin-left:.6rem" href="/pillar/{{ p.name | slug }}/">{{ p.name }}</a>{% endfor %}
+    </p>
+  </header>
+  {%- set postsToShow = collections.posts %}
+  {% include "post-list.njk" %}
+  <div style="height:4rem"></div>
+</div>

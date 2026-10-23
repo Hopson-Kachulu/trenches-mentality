@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- set pageTitle = (title + " · " + site.name) if title else (site.name + " · " + site.tagline) %}
+  {%- set pageDesc = description or excerpt or site.description %}
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDesc }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{{ title or site.name }}">
+  <meta property="og:description" content="{{ pageDesc }}">
+  <meta property="og:type" content="{{ 'article' if layout == 'post.njk' else 'website' }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}{{ image or '/assets/og.png' }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#2B211B">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Work+Sans:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  {%- if site.goatcounter %}
+  <script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  {%- endif %}
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 32h32M8 32c2-7 6-11 12-11s10 4 12 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M20 21V7m0 0l-5 5m5-5l5 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Trenches<br>Mentality</span>
+      </a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open menu">
+      <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true"><span></span></label>
+      <nav class="nav" aria-label="Main">
+        {%- set links = [["/blog/", "Blog"], ["/about/", "About"], ["/newsletter/", "Newsletter"], ["/contact/", "Contact"]] %}
+        {%- for l in links %}
+        <a href="{{ l[0] }}" {% if page.url.startsWith(l[0]) %}aria-current="page"{% endif %}>{{ l[1] }}</a>
+        {%- endfor %}
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-brand">Trenches Mentality</p>
+        <p class="muted">{{ site.tagline }}</p>
+      </div>
+      <div>
+        <p class="footer-head">Read</p>
+        <a href="/blog/">All stories</a>
+        {%- for p in site.pillars %}<a href="/pillar/{{ p.name | slug }}/">{{ p.name }}</a>{% endfor %}
+      </div>
+      <div>
+        <p class="footer-head">Stay close</p>
+        <a href="/newsletter/">Newsletter</a>
+        <a href="/feed.xml">RSS</a>
+        <a href="/contact/">Contact</a>
+        {%- for name, link in site.socials %}{% if link %}<a href="{{ link }}" rel="me">{{ name | capitalize }}</a>{% endif %}{% endfor %}
+      </div>
+    </div>
+    <div class="wrap footer-base muted">© {{ "" | year }} Trenches Mentality. Built from the ground up.</div>
+  </footer>
+</body>
+</html>

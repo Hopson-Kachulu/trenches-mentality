@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Dashboard · Trenches Mentality</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <style>
+    .tm-stats { position: fixed; right: 16px; bottom: 16px; z-index: 9999; background: #B4542D; color: #FFF8EE;
+      font: 600 14px/1 system-ui, sans-serif; padding: 12px 16px; border-radius: 4px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+    .tm-stats:hover { background: #8F3F1F; }
+  </style>
+</head>
+<body>
+  <!-- Decap CMS: your writing dashboard. It saves posts to GitHub; Netlify then rebuilds the site. -->
+  <script src="https://unpkg.com/decap-cms@3.17.1/dist/decap-cms.js"></script>
+  <!-- Quick link to your visitor stats (set your GoatCounter code in the Settings collection) -->
+  <a class="tm-stats" id="tm-stats" href="https://www.goatcounter.com/" target="_blank" rel="noopener">View stats ↗</a>
+  <script>
+    fetch("/assets/site-config.json").then(r => r.json()).then(s => {
+      if (s.goatcounter) document.getElementById("tm-stats").href = "https://" + s.goatcounter + ".goatcounter.com/";
+    }).catch(() => {});
+  </script>
+</body>
+</html>

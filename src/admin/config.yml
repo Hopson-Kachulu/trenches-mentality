@@ -1,0 +1,68 @@
+# Decap CMS settings: this defines what you see in /admin
+backend:
+  name: github
+  repo: Hopson-Kachulu/trenches-mentality
+  branch: main
+  base_url: https://api.netlify.com               # Netlify handles the GitHub login for you
+  auth_endpoint: auth
+
+site_url: https://trenchesmentality.shop
+display_url: https://trenchesmentality.shop
+logo_url: /assets/favicon.svg
+
+media_folder: src/uploads      # where uploaded images are saved in the repo
+public_folder: /uploads        # how they're referenced on the site
+
+collections:
+  - name: blog
+    label: Blog posts
+    label_singular: Post
+    folder: src/blog
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} · {{pillar}} · {{date | date('D MMM YYYY')}}{{draft | ternary(' · DRAFT', '')}}"
+    sortable_fields: [date, title, pillar]
+    view_filters:
+      - { label: Drafts, field: draft, pattern: true }
+    view_groups:
+      - { label: Pillar, field: pillar }
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: "Publish date (set a future date to schedule)", name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: Pillar, name: pillar, widget: select, options: [Tech, AI, Agriculture, Arts, Hustle] }
+      - { label: "Short summary (1–2 sentences, shown in lists & Google)", name: excerpt, widget: text }
+      - { label: Cover image, name: image, widget: image, required: false }
+      - { label: "Cover image description (for blind readers & SEO)", name: imageAlt, widget: string, required: false }
+      - { label: Author, name: author, widget: string, default: Hopson }
+      - { label: "Draft (keep hidden from the site)", name: draft, widget: boolean, default: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: settings
+    label: Site settings
+    files:
+      - name: site
+        label: Name, contacts & socials
+        file: src/_data/site.json
+        fields:
+          - { label: Site name, name: name, widget: string }
+          - { label: Tagline, name: tagline, widget: string }
+          - { label: Description (for Google), name: description, widget: text }
+          - { label: Site URL, name: url, widget: string }
+          - { label: Author, name: author, widget: string }
+          - { label: Contact email, name: email, widget: string }
+          - { label: "GoatCounter code (e.g. 'trenches' for trenches.goatcounter.com)", name: goatcounter, widget: string, required: false }
+          - label: Social links
+            name: socials
+            widget: object
+            fields:
+              - { label: X / Twitter URL, name: x, widget: string, required: false }
+              - { label: Instagram URL, name: instagram, widget: string, required: false }
+              - { label: TikTok URL, name: tiktok, widget: string, required: false }
+              - { label: YouTube URL, name: youtube, widget: string, required: false }
+              - { label: WhatsApp channel/link, name: whatsapp, widget: string, required: false }
+          - label: Pillars
+            name: pillars
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: One-line description, name: line, widget: string }

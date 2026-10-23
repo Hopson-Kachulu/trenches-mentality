@@ -1,0 +1,18 @@
+---
+layout: base.njk
+title: "Thank you"
+permalink: /thanks/
+eleventyExcludeFromCollections: true
+---
+<div class="wrap" style="padding:5rem 1rem 6rem;max-width:42rem">
+  <p class="eyebrow">Received</p>
+  <h1 id="thanks-title">Thank you. You're in.</h1>
+  <p id="thanks-text" style="font-size:1.2rem">We got it. Keep building. While you wait, read something from the blog.</p>
+  <p><a class="btn" href="/blog/">Read the stories</a></p>
+</div>
+<script>
+  if (location.search.includes("f=contact")) {
+    document.getElementById("thanks-title").textContent = "Message received.";
+    document.getElementById("thanks-text").textContent = "Thanks for reaching out. A real person will read it and reply, usually within two days.";
+  }
+</script>
