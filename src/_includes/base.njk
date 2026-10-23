@@ -36,9 +36,9 @@
       <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open menu">
       <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true"><span></span></label>
       <nav class="nav" aria-label="Main">
-        {%- set links = [["/blog/", "Blog"], ["/about/", "About"], ["/newsletter/", "Newsletter"], ["/contact/", "Contact"]] %}
+        {%- set links = [["/blog/", "Blog"], ["/about/", "About"], ["/newsletter/", "Newsletter"], ["/contact/", "Contact"], ["/inner-circle/", "Inner Circle"]] %}
         {%- for l in links %}
-        <a href="{{ l[0] }}" {% if page.url.startsWith(l[0]) %}aria-current="page"{% endif %}>{{ l[1] }}</a>
+        <a href="{{ l[0] }}" {% if l[0] == "/inner-circle/" %}class="nav-ic"{% endif %} {% if page.url.startsWith(l[0]) %}aria-current="page"{% endif %}>{{ l[1] }}</a>
         {%- endfor %}
       </nav>
     </div>
@@ -62,6 +62,7 @@
       <div>
         <p class="footer-head">Stay close</p>
         <a href="/newsletter/">Newsletter</a>
+        <a href="/inner-circle/">Inner Circle</a>
         <a href="/feed.xml">RSS</a>
         <a href="/contact/">Contact</a>
         {%- for name, link in site.socials %}{% if link %}<a href="{{ link }}" rel="me">{{ name | capitalize }}</a>{% endif %}{% endfor %}
